@@ -1,0 +1,136 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;500;600;700;800;900&display=swap");
+
+:root {
+  --primary-color: #e50914;
+  --bg-color: #333;
+  --black-color: #000;
+  --white-color: #fff;
+  --border-radius: 12px;
+}
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+html {
+  font-size: 62.5%;
+  font-family: "Montserrat", sans-serif;
+}
+body {
+  //   width: 1440px;
+  max-width: 100%;
+  margin: 0 auto;
+  background-color: var(--bg-color);
+}
+
+header {
+  width: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.2rem 3%;
+  background-color: var(--black-color);
+}
+
+.link-logo {
+  font-size: 2.4rem;
+  color: var(--primary-color);
+  text-decoration: none;
+}
+form {
+  .search {
+    width: 300px;
+    padding: 1rem 2rem;
+    border-radius: 6px;
+    color: var(--black-color);
+    font-size: 1.6rem;
+    border: none;
+    outline: none;
+  }
+}
+
+main {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  padding: 0 3%;
+  margin-top: 2.4rem;
+  .movie__item {
+    position: relative;
+    cursor: pointer;
+
+    &::before {
+      opacity: 0;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      content: "";
+      width: 100%;
+      height: 100%;
+      border-radius: var(--border-radius);
+      background-color: rgba(0, 0, 0, 0.6);
+      transition: all 0.25s ease-out;
+    }
+
+    &:hover .movie__content {
+      top: 50%;
+      opacity: 1;
+      transition: all 0.25s ease-out;
+    }
+    &:hover::before {
+      opacity: 1;
+      transition: all 0.25s ease-out;
+    }
+  }
+  img {
+    height: 100%;
+    width: 100%;
+    border-radius: 12px;
+  }
+
+  .movie__content {
+    opacity: 0;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    flex-direction: column;
+    width: 100%;
+    color: var(--white-color);
+    text-align: center;
+    border-radius: 12px;
+    transition: all 0.25s ease-out;
+  }
+
+  h2 {
+    font-size: 3.4rem;
+    width: 100%;
+    color: #fff;
+    padding: 0 0.8rem;
+  }
+  p {
+    font-size: 1.2rem;
+    width: 100%;
+    margin: 0 auto;
+    color: #ccc;
+    padding: 0 14px;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  main {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 767px) {
+  header {
+    flex-direction: column;
+    .search {
+    }
+  }
+  main {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
