@@ -30,7 +30,7 @@ function showMovies(url) {
         const description = document.createElement("p");
 
         // Add inner Element
-        image.src = IMG_PATH + movie.backdrop_path;
+        image.src = IMG_PATH + movie.poster_path;
         image.alt = "ERROR IMAGE";
         title.innerHTML = movie.title;
         description.innerHTML = movie.overview;
